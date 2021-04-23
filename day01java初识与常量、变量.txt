@@ -1,0 +1,257 @@
+java学习day01
+目标：
+	1、java初始
+	2、java常量与变量
+
+1. 入门第一个程序
+	class HelloJava 
+	{
+		public static void main(String[] args) 
+		{
+			System.out.println("Courage");	//输出语句
+			System.out.print("你好，");		//不换行进行输出
+			System.out.println("Hello World!");		//换行输出语句
+		}
+	}
+
+ 1.1 java程序的结构
+     class为类关键字；
+     主方法中前面为修饰符，可以修改的是args
+     System.out.println("");为输出语句
+*** 程序的执行流程：自上而下
+	program.java(源文件)>>compiler(编译器)>>program.class(字节码文件)>>interpreter(解释器)>>program
+	类{
+		主方法（入口）{
+			输出语句
+		}
+	}
+ 1.2 java开发IDE、Eclipse下载
+     下载链接：https://www.eclipse.org/downloads/
+
+2. Java常量与变量
+ 2.1 标识符
+       "HelloImooc"类名即标识符
+       命名规则：
+        *标识符可以由字母、数字、下划线_、美元符$组成，不可以由数字开头
+	*标识符严格区分大小写
+	*标识符不能是Java的关键字和保留字
+	*标识符的命名最好能直接反应其作用
+ 2.2 关键字
+       
+ 2.3 变量
+       变量三元素：变量类型、变量名、变量值
+       变量命名规则：
+       *满足标识符的命名规则
+       *符合驼峰法命名规范
+       *尽量简单，做到见名知意
+       *变量名的长度没有限制
+       类名命名规范Pascal命名（当类名由多个单词组成首字母大写）
+       *满足Pascal命名法规范
+  2.3.1数据类型
+   基本数据类型：
+   *数值性
+   	整数类型（byte、short、int、long）
+	浮点类型（float、double）
+   *字符型（char）
+   *布尔型（boolean）true（真）、false（假）
+   引用数据类型：类（class）、接口（interface）、数组
+	数据类型	说明		字节
+	byte		字节型	1
+	short		短整型	2
+	int		整型		4
+	long		长整型	8
+	float		单精度浮点型	4
+	double		双精度浮点型	8
+	char		字符型	2
+	boolean		布尔型	1
+  2.3.2整型字面值
+  	二进制表示
+	十进制：
+	八进制：以0开头，包括0-7的数字
+	十六进制：以0x或0X开头，包括0-9的数字 ，及字符a-f，A-F
+  2.3.2.1变量声明
+  	格式：数据类型 变量名;
+	例：
+	int i ;		声明整型变量i
+	long count;	声明长整形变量count
+  2.3.2.1赋值
+  	使用“=”运算符进行赋值
+	“=”叫作赋值运算符，将运算符右边的值赋给左边的变量。
+	例：	int n；	定义int型变量n
+		n = 3；	将3赋值给n；
+	可以在定义 变量的同时给变量赋值，即变量的初始化 。
+	例：	int n = 3；
+	变量定义
+		int cotal = 037；	
+		//定义int类型变量存放八进制数据
+		long longNumber = 0xa2cdf3ffL；
+		//定义变量存放十六进制长整型数据
+		short shortNumber = 123；
+		//定义变量存放短整型数据
+		byte b = 10；
+		//定义变量存放byte类型数据
+  2.3.3 浮点型字面值
+  	浮点型字面值默认情况下表示double类型，也可以在值后加d或D
+	如：123.34d
+	如表示float类型，则需要在字面值后加f或F
+	如：234.4f
+	public class FloatDome 
+	{
+		public static void main(String[] args) 
+		{
+			//定义一个单精度浮点型变量，存放12234.328
+			//float f = 12234.328;
+			//FloatDome.java:7: 错误: 不兼容的类型: 从double转换到float可能会有损失
+			float f =12234.328f;
+			System.out.println("f="+f);
+			//定义一个双精度浮点型变量，存放  5623.456
+			double d = 5632.464;
+			System.out.println("d="+d);
+			double d1 = 123L;//最大型
+			System.out.println("d1="+d1);
+			//变量间的赋值
+			double d2 =d;
+			System.out.println("d2 = "+d2);
+		}
+	}
+ 2.4 基本数据类型变量的储存
+ 	按照作用范围分为：
+		-类级、对象实例级、方法级、块级
+	int n = 100;
+	内存：
+	栈：100（n）
+	常量：
+	堆：
+  2.4.1 字符型字面值
+  	字符型字面值用单引号内的单个字符表示。
+	如：‘a’，‘b’，‘$’
+	char a = ‘a’；
+	ASCII码，美国标准信息交换代码
+	Unicode编码
+	char c = '\u005d';
+	c=]
+ 2.5 布尔类型面值
+ 	布尔类型只能定义为true和false
+	例：boolean b =  true；
+ 2.6 字符串字面值
+ 	字符串不属于基本数据类型，它是类
+	双引号引起来的0个或多个字符。
+	public class StringDome
+	{
+		public static void main(String[] args){
+			//字符串字面值案例
+			String s1 = "" ;
+			System.out.println("s1 = "+s1);
+			//定义一个字符串 hello
+			String s2 = "hello";
+			System.out.println("s2 =  " + s2);
+			//定义一个包含unicode字符的字符串
+			String s3 = "\u005d\u005f";
+			System.out.println("s3 = " + s3);
+			//定义一个包含空格的字符串
+			String s4 ="Hello world";
+			System.out.println("s4 = " +s4);
+		}
+	}
+	s1 =
+	s2 =  hello
+	s3 = ]_
+	s4 = Hello world
+ 2.7 变量案例
+	1、定义两个变量整型为x,y
+	2、关于换行的问题
+		System.out.println();	//换行
+		System.out.print('\n');	//换行字符"\n"
+	3、定义一个汉字的字符
+	4、用科学计数法表示浮点型数据
+	class VarDemo
+	{
+		public static void main(String[] args){
+			/*
+			1、定义两个变量整型为x,y
+			2、关于换行的问题
+				System.out.println();	//换行
+				System.out.print('\n');	//换行字符"\n"
+			3、定义一个汉字的字符
+			4、用科学计数法表示浮点型数据
+			*/
+			//		1、定义两个变量整型为x,y
+			int x = 3 , y = 4 ;
+			System.out.println("x = "+x+"y = "+y);
+			//	2、关于换行的问题
+			System.out.print(x+"\n");
+			System.out.print(y);
+			System.out.print("\n"+"\'"+x+"\'"+"\n");
+			//3、定义一个汉字的字符
+			String ch  = "中";
+			System.out.println(ch);
+			//String 中 = "国";
+			//System.out.println(中);
+			//用科学计数法表示浮点型数据
+			double d = 1.23E5;
+			float  f = 1.33e3f;
+			double d1 = .2;
+			System.out.println("d = "+d+", f = "+f+", d1 = "+d1);
+		}
+	}
+	x = 3y = 4
+	3
+	4
+	'3'
+	中
+	d = 123000.0, f = 1330.0, d1 = 0.2
+ 2.8 类型转换
+ 	类型转换分为自动类型转换和强制类型转换
+	自动类型转换称为“隐式转换”
+	总结：小转大。大转小会丢失
+	强制转换：
+		如果A类型数据表示范围比B类型大，则将A类型的值赋值给B类型，需要强制转换
+		如：
+		double d = 123.4；
+		float f = (float) d;
+		格式为：
+		数据类型 变量名 = （强制转换类型）变量名；
+	public class TypeExchange
+	{
+		public static void main(String[] args){
+			//char类型和int类型之间的转换
+			char c = (char) 65536;
+			int n ;
+			n = c ;	//隐式类型转换
+			c = (char) n;
+
+			//整型和浮点类型转换
+			int x = 100;
+			long y = x;
+			x = (int) y ;
+			float f = 10000000L;
+			System.out.println("f = "+f);
+			float f1 = 10213409234L;
+			System.out.println("f1 = "+f1);
+			System.out.println(c);
+		}
+	}
+	f = 1.0E7
+	f1 = 1.02134088E10(丢失字符)
+ 2.9 常量(final)
+ 	final int n = 5 ;
+	public class FinalDemo
+	{
+		public static void main(String[] args){
+			//常量与变量的区别
+			int m = 5 ;
+			final int n = 6 ;
+			m = 10 ;
+			//n = 10 ; FinalDemo.java:8: 错误: 无法为最终变量n分配值
+			final double PI = 3.14 ;
+			final double MIN_VALUE = 0 ;  
+		}
+	}
+ 2.10 总结
+ 	标识符的命名规则
+	关键字：class、public等
+	数据类型 ：数据类型分为基本数据类型与引用类型
+	变量的定义与初始化：int n ； n = 5 ；
+	基本数值的字面值
+	ASCII码和Unicode编码
+	类型转换：小转大不丢失，大转小会丢失
